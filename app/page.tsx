@@ -6,11 +6,17 @@ const page = () => {
 
   let [SECRET_NUMBER, SET_SECRET_NUMBER] = useState<null | number>(null);
   let [user_input, set_user_input] = useState<number | string>('');
+  let [match_secret, set_match_secret] = useState(false);
 
   const random_number = (min: number, max: number) => {
     if (!SECRET_NUMBER) {
       return Math.floor(Math.random() * (max - min + 1)) + min;
     } else return;
+  }
+
+  const confirm_guess = () => {
+    if (Number(user_input) === Number(SECRET_NUMBER)) set_match_secret(true);
+    else set_match_secret(false);
   }
 
   useEffect(() => {
@@ -35,7 +41,7 @@ const page = () => {
                 value={user_input as unknown as string} type="number" name="username" autoComplete="username" className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6" placeholder="Input a number" />
             </div>
 
-            <button type="button" className="w-[fit-content] h-[fit-content] py-[0.2em] px-[3em] text-white bg-green-500 mt-3 rounded-md active:scale-[0.98]">submit</button>
+            <button onClick={confirm_guess} type="button" className="w-[fit-content] h-[fit-content] py-[0.2em] px-[3em] text-white bg-green-500 mt-3 rounded-md active:scale-[0.98]">submit</button>
           </div>
         </div>
 
