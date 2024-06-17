@@ -1,3 +1,12 @@
+## Numer Guesser Game
+# This has the below logic and implementations:
+
+1. Random Number Generation
+2. User Input
+3. Feedback Mechanism using (React Toastify)
+4. Win/Loss Condition
+5. Limit on Attempts
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
